@@ -11,7 +11,7 @@ var loader = document.createElement("div");
 var body = document.getElementById('body');
 loader.setAttribute("class", "loading");
 loader.setAttribute("id", "loading");
-loader.appendChild('Loading&#8230;');
+loader.innerText('Loading&#8230;');
 body.appendChild(loader);
 
 function ghjfyu() {
